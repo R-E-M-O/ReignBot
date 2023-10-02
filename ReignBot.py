@@ -91,7 +91,7 @@ class ReignBot(commands.Bot):
                 am_pm = siege_time.strftime('%p')
 
                 # Send the announcement
-                announcement = f"@everyone Guild Siege happening at {hour}:{minute} {am_pm}. ATTACK ONLY THE MARKED BASES!"
+                announcement = f"@everyone Guild Siege starts at {hour}:{minute} {am_pm}. ATTACK ONLY THE MARKED BASES!"
                 await channel.send(announcement)
                 announce_complete = True
 
@@ -116,11 +116,6 @@ class ReignBot(commands.Bot):
         return announce_complete
 
 
-
-        
-
-        
-
-
     async def on_ready(self):
-        self.announcement_loop.start()
+        if not self.announcement_loop.is_running():
+            self.announcement_loop.start()
