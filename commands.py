@@ -27,17 +27,17 @@ async def leave(ctx):
 #useful commands for a music bot
 @bot.command()
 async def play(ctx, url):
-    #if url is none send a message
+    
     if url is None:
         await ctx.send("You must include a url.")
         return
+    
     #if bot is not connected to a voice channel but url is valid, call join
     if not ctx.voice_client:
         await join(ctx)
     
     #play the song
     pass
-
 
 
 
