@@ -41,5 +41,6 @@ async def play(ctx, url):
 
 
 
-
-bot.run(data['token'])
+# Access the Discord token
+discord_token = data['token']
+bot.run(discord_token)
